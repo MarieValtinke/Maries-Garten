@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+</head>
+
+
+<body>
+
+
+  <h1>
+    <span>Maries</span>
+    <span>Garten</span>
+  </h1>
+
+  <img src="websitemarie.png" class="Selfie"
+
+
+<section>
+
+
+  <div class="selfietext">
+    <p>
+      Willkommen in Maries Garten
+
+      Da steht sie, wie immer in der Mitte, aber nicht in ihrer oder jenigen, der Begegnung schenkt. Demonstrativ und ion, laute Frau, auch hysterisch. Sie ist bergauf rennend und stolpert in den Garten. Ihr Garten. Voller sie und keinem sonst, außer jemand stünde auf der Gästeliste, aber die hat mehr Warteliste als ihre To-Do. Oder sowas.
+
+      Alles so voll, so voll und für diesen Langstreckenlauf helfen keine Asics keine New Balance, denn hier ist 2nd Hand Vintage Balance im Garten Eden. Recourssenschonend. Kein Gott, keine Religion, eher Garten Erdinger Weissbier, wenn du mich fragst. Aber keiner fragt, wo ist denn der Bus? Müsst ihr schon los?
+
+      Maries Garten hatte die Ruhe in sich aber no Relief Hardtechno stampfen schreien und gezogen werden in den Garten meiner kleinen Ruhe. Komm vorbei, wenn du dich traust, aber nicht so auf Heirat, sondern nur Mut zum Garten. Großer.
+
+      Da kommt der Bus ja.
+    </p>
+  </div>
+
+</section>
+
+<div class="hintergrund"></div>
+
+
+
+
+
+
+<!-- alles für den swiper -->
+<div class="swiper">
+
+  <div class="swiper-wrapper">
+
+    <!-- swiper bild 1 -->
+    <div class="swiper-slide">
+      <figure>
+        <img src="frühstück.jpg" alt="Kaffeefrühstück">
+        <figcaption>Kaffeefrühstück</figcaption>
+      </figure>
+    </div>
+
+    <!-- swiper bild 2 -->
+    <div class="swiper-slide">
+      <figure>
+        <img src="gelassenheit.jpg" alt="Gelassenheit">
+        <figcaption>Gelassenheit</figcaption>
+      </figure>
+    </div>
+
+    <!-- swiper bild 3 -->
+    <div class="swiper-slide">
+      <figure>
+        <img src="meinung.jpg" alt="Meinung">
+        <figcaption>Meinung</figcaption>
+      </figure>
+    </div>
+
+  </div>
+
+  <div class="swiper-pagination"></div>
+
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+</div>
+
+<!-- swiper, achtung, das muss genau hier stehen bleiben-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+
+      pagination: {
+        el: '.swiper-pagination',
+      },
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+
+
+
+  <!--Lauschen Animation-->
+    <section id="lauschen" class="abschnitt">
+      <div class="inner-wrapper">
+            <div class="lausch-animation" aria-hidden="true"></div>
+
+        <figure>
+          <audio id="lauschen-audio" controls src="Regengeraeusch.mp3"></audio> 
+        </figure>
+
+        
+        <button type="button" class="button-vollbild"> Rein Da!
+      </div>
+    </section>
+  
+
+    <!-- diese dämliche Blume-->
+        <section>
+      <div class="inner-wrapper">
+        <figure>
+          <img src="marie-v.webp" alt="Animation einer sich um die eigene Achse drehende Blume">
+        </figure>
+      </div>
+    </section>
+
+
+      <!-- footer für dinamo-->
+      <footer>
+        <div class="inner-wrapper">
+          <p>Schriftarten von <a href="https://abcdinamo.com" target="_blank">Dinamo Typeface</a></p>
+        </div>
+      </script> 
+
+      </html>
