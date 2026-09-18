@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
+  <title>Maries Garten</title>
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
 </head>
 
 
@@ -15,13 +16,14 @@
     <span>Garten</span>
   </h1>
 
-  <img src="websitemarie.png" class="Selfie"
+  <img src="websitemarie.png" class="Selfie">
 
 
 <section>
 
-
-  <div class="selfietext">
+<div class="lolli-text">
+  <img src="lolli.png" alt="Lolli">
+      <div class="selfietext">
     <p>
       Willkommen in Maries Garten
 
@@ -33,11 +35,23 @@
 
       Da kommt der Bus ja.
     </p>
+    </div>
   </div>
 
 </section>
 
+
+
+
 <div class="hintergrund"></div>
+
+
+
+<div class="HausText"> 
+  <h2> Und wie mir das ins kommt.</h2>
+
+<img src="HausGelb.png" class="Haus">
+</div>
 
 
 
@@ -82,24 +96,60 @@
 
 </div>
 
-<!-- swiper, achtung, das muss genau hier stehen bleiben-->
-<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-<script>
-    const swiper = new Swiper('.swiper', {
-      direction: 'horizontal',
-      loop: true,
 
-      pagination: {
-        el: '.swiper-pagination',
-      },
+<section class="Picknickdeckentext">
+  <div class="LauschText">
+    <h2>Weise wählen.</h2>
+  </div>
 
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  </script>
-</body>
+  <div class="LauschTextBig">
+    <h1>.................</h1>
+  </div>
+
+<section>
+<img src="meinung.png" class="Hintergrund2">
+
+
+ <div class="Auswahl">
+
+  <img src="Picknickdecke.png" class="Picknick">
+
+  <!-- Unsichtbare Klickflächen -->
+
+  <button class="ObjektKlick BierKlick">
+  </button>
+
+  <button class="ObjektKlick ApfelKlick">
+  </button>
+
+  <button class="ObjektKlick ZigaretteKlick">
+  </button>
+
+</div>
+
+
+<!-- BIER OVERLAY -->
+
+<div class="ObjektOverlay" id="bier-overlay">
+  <img src="BierOverlay.png" class="OverlayBild">
+</div>
+
+
+<!-- APFEL OVERLAY -->
+
+<div class="ObjektOverlay" id="apfel-overlay">
+  <img src="ApfelOverlay.png" class="OverlayBild">
+</div>
+
+
+<!-- ZIGARETTEN OVERLAY -->
+
+<div class="ObjektOverlay" id="zigarette-overlay">
+  <img src="ZigaretteOverlay.png" class="OverlayBild">
+</div>
+</div>
+</section>
+
 
 
 
@@ -113,7 +163,7 @@
         </figure>
 
         
-        <button type="button" class="button-vollbild"> Rein Da!
+        <button type="button" class="button-vollbild"> Rein Da!</button>
       </div>
     </section>
   
@@ -133,6 +183,27 @@
         <div class="inner-wrapper">
           <p>Schriftarten von <a href="https://abcdinamo.com" target="_blank">Dinamo Typeface</a></p>
         </div>
-      </script> 
+      </footer> 
 
-      </html>
+
+
+<!-- swiper, achtung, das muss genau hier stehen bleiben-->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    direction: 'horizontal',
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+<script src="script.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

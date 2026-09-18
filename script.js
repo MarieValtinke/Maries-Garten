@@ -1,17 +1,9 @@
 
-// SWIPER
 
-const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  loop: true,
-  pagination: {
-    el: '.swiper-pagination',
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+// Removed stray HTML meta tag that doesn't belong in a JavaScript file
+
+
+// SWIPER
 
 //Lauschen Button und Vollbild
 
@@ -46,3 +38,49 @@ if (audio && animation && vollbildButton && lauschen) {
 
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const bier = document.querySelector(".BierKlick");
+  const apfel = document.querySelector(".ApfelKlick");
+  const zigarette = document.querySelector(".ZigaretteKlick");
+
+  const bierOverlay = document.querySelector("#bier-overlay");
+  const apfelOverlay = document.querySelector("#apfel-overlay");
+  const zigaretteOverlay = document.querySelector("#zigarette-overlay");
+
+
+  // BIER
+  bier.addEventListener("pointerdown", function () {
+    bierOverlay.classList.add("offen");
+  });
+
+
+  // APFEL
+  apfel.addEventListener("pointerdown", function () {
+    apfelOverlay.classList.add("offen");
+  });
+
+
+  // ZIGARETTE
+  zigarette.addEventListener("pointerdown", function () {
+    zigaretteOverlay.classList.add("offen");
+  });
+
+
+  // Beim Loslassen Overlay schließen
+  document.addEventListener("pointerup", function () {
+
+    bierOverlay.classList.remove("offen");
+    apfelOverlay.classList.remove("offen");
+    zigaretteOverlay.classList.remove("offen");
+
+  });
+
+
+  const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  pagination: { el: '.swiper-pagination' },
+  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+});
+});
