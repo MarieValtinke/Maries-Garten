@@ -1,16 +1,8 @@
 
-
-// Removed stray HTML meta tag that doesn't belong in a JavaScript file
-
-
-// SWIPER
-
-//Lauschen Button und Vollbild
-
 const audio = document.querySelector("#lauschen-audio");
 const animation = document.querySelector(".lausch-animation");
 const vollbildButton = document.querySelector(".button-vollbild");
-const lauschen = document.querySelector("#lauschen");
+const lauschen = document.querySelector("#PlitschPlatsch");
 
 if (audio && animation && vollbildButton && lauschen) {
 
@@ -33,6 +25,12 @@ if (audio && animation && vollbildButton && lauschen) {
     } else {
       await document.exitFullscreen();
     }
+
+  document.addEventListener("fullscreenchange", () => {
+  if (document.fullscreenElement === lauschen && !audio.paused) {
+    animation.classList.add("is-playing");
+  }
+});
 
   });
 
@@ -78,9 +76,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   const swiper = new Swiper('.swiper', {
-  direction: 'horizontal',
-  loop: true,
-  pagination: { el: '.swiper-pagination' },
-  navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    direction: 'horizontal',
+    loop: true,
+    pagination: { el: '.swiper-pagination' },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+  });
 });
-});
+
+const darkmodeButton = document.getElementById('darkmode-toggle');
+const root = document.documentElement;
+const storageKey = 'theme';
+
+if (darkmodeButton) {
+  const gespeichertesTheme = localStorage.getItem(storageKey);
+  if (gespeichertesTheme === 'light' || gespeichertesTheme === 'dark') {
+    root.setAttribute('data-theme', gespeichertesTheme);
+  }
+
+  darkmodeButton.addEventListener('click', function () {
+    const aktuellesTheme = root.getAttribute('data-theme')
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const naechstesTheme = aktuellesTheme === 'dark' ? 'light' : 'dark';
+
+    root.setAttribute('data-theme', naechstesTheme);
+    localStorage.setItem(storageKey, naechstesTheme);
+  });
+}
+
