@@ -34,12 +34,12 @@
   <main>
 
     <section class="mainpage">
-      <h1>
-        <span>Maries</span>
-        <span>Garten</span>
-      </h1>
+        <h1 class="ErsteHeadline">
+          <span>Maries</span>
+          <span>Garten</span>
+        </h1>
 
-      <img src="websitemarie.png" class="Selfie" id="selfieselfie" alt="Marie">
+        <img src="websitemarie.png" class="Selfie" id="selfieselfie" alt="Marie">
     </section>
 
 
@@ -88,7 +88,7 @@
       <div class="swiper">
         <div class="swiper-wrapper">
 
-          <!-- swiper bild 1 -->
+          <!-- swiper Frühstück -->
           <div class="swiper-slide">
             <figure>
               <img src="frühstück.jpg" alt="Kaffeefrühstück">
@@ -96,7 +96,7 @@
             </figure>
           </div>
 
-          <!-- swiper bild 2 -->
+          <!-- swiper Gelassenheit -->
           <div class="swiper-slide">
             <figure>
               <img src="gelassenheit.jpg" alt="Gelassenheit">
@@ -104,7 +104,7 @@
             </figure>
           </div>
 
-          <!-- swiper bild 3 -->
+          <!-- swiper Meinung -->
           <div class="swiper-slide">
             <figure>
               <img src="meinung.jpg" alt="Meinung">
@@ -123,19 +123,12 @@
 
 
     <section id="Weise-wählen" class="Picknickdeckentext">
-      <div class="LauschText">
+      <div class="WählenText">
         <h2>Weise wählen.</h2>
       </div>
 
-      <div class="LauschTextBig">
-        <h1>.................</h1>
-      </div>
-
-
       <div class="Auswahl">
         <img src="Picknickdecke.png" class="Picknick" alt="Picknickdecke">
-
-        <!-- Unsichtbare Klickflächen -->
 
         <button class="ObjektKlick BierKlick">
         </button>
@@ -146,51 +139,49 @@
         <button class="ObjektKlick ZigaretteKlick">
         </button>
 
-      </div>
+        <div class="ObjektOverlay" id="bier-overlay">
+          <img src="BierOverlay.png" class="OverlayBild">
+        </div>
 
+        <div class="ObjektOverlay" id="apfel-overlay">
+          <img src="ApfelOverlay.png" class="OverlayBild">
+        </div>
 
+        <div class="ObjektOverlay" id="zigarette-overlay">
+          <img src="ZigaretteOverlay.png" class="OverlayBild">
+        </div>
 
-      <div class="ObjektOverlay" id="bier-overlay">
-        <img src="BierOverlay.png" class="OverlayBild">
-      </div>
-
-
-      <div class="ObjektOverlay" id="apfel-overlay">
-        <img src="ApfelOverlay.png" class="OverlayBild">
-      </div>
-
-
-      <div class="ObjektOverlay" id="zigarette-overlay">
-        <img src="ZigaretteOverlay.png" class="OverlayBild">
       </div>
     </section>
 
 
-    <!--Lauschen Animation-->
+    <!-- Lauschen Animation -->
     <section id="PlitschPlatsch" class="abschnitt">
       <div class="inner-wrapper">
-        <div class="lausch-animation" aria-hidden="true"></div>
 
-        <figure>
-          <audio id="lauschen-audio" controls src="Regengeraeusch.mp3"></audio>
-        </figure>
+        <section class="HeadlineLauschen">
+          <h2>
+            PlitschPlatsch
+            PlitschPlatsch
+            PlitschPlatsch
+          </h2>
 
+          <div class="animationmitkatze" aria-hidden="true">
+            <figure>
+              <audio id="lauschen-audio" controls src="Regengeraeusch.mp3">
+              </audio>
+            </figure>
 
-        <button type="button" class="button-vollbild"> Rein Da!</button>
+            <button type="button" class="button-vollbild">
+              Rein Da!
+            </button>
+          </div>
 
+          <div class="Katze">
+            <img src="BlaueKatze.png" alt="Blaue Katze">
+          </div>
+        </section>
 
-        <div class="Katze">
-          <img src="BlaueKatze.png" alt="Blaue Katze">
-        </div>
-      </div>
-    </section>
-
-    <section class="HeadlineLauschen">
-      <h2>
-        PlitschPlatsch
-        PlitschPlatsch
-        PlitschPlatsch
-      </h2>
       </div>
     </section>
 
@@ -218,9 +209,8 @@
           </div>
         </div>
 
+      </section>
     </div>
-    </section>
-
 
     <section id="FernsehSteuerung">
       <h2> Was läuft denn? </h2>
@@ -238,12 +228,8 @@
         Also bitte keine Fragen mehr. Ich bin ein Mensch. Punkt. Und jetzt entschuldigt mich, ich muss dringend meine
         menschlichen Batterien aufladen.
       </p>
-      <button type="button" class="Ausschalten">Ausschalten</button>
+      <button type="button" class="Ausschalten" id="ausschalten-btn">Ausschalten</button>
     </section>
-    </div>
-
-
-    <!-- diese dämliche Blume-->
 
   </main>
 

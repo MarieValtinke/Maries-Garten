@@ -1,11 +1,9 @@
-
 const audio = document.querySelector("#lauschen-audio");
-const animation = document.querySelector(".lausch-animation");
+const animation = document.querySelector(".animationmitkatze");
 const vollbildButton = document.querySelector(".button-vollbild");
 const lauschen = document.querySelector("#PlitschPlatsch");
 
 if (audio && animation && vollbildButton && lauschen) {
-
   audio.addEventListener("play", () => {
     animation.classList.add("is-playing");
   });
@@ -18,22 +16,27 @@ if (audio && animation && vollbildButton && lauschen) {
     animation.classList.remove("is-playing");
   });
 
-  vollbildButton.addEventListener("click", async () => {
+  vollbildButton.addEventListener("click", async (event) => {
+    event.preventDefault();
 
-    if (!document.fullscreenElement) {
-      await lauschen.requestFullscreen();
-    } else {
-      await document.exitFullscreen();
+    try {
+      if (!document.fullscreenElement) {
+        await lauschen.requestFullscreen();
+      } else {
+        await document.exitFullscreen();
+      }
+    } catch (error) {
+      console.error("Fullscreen konnte nicht aktiviert werden:", error);
     }
-
-  document.addEventListener("fullscreenchange", () => {
-  if (document.fullscreenElement === lauschen && !audio.paused) {
-    animation.classList.add("is-playing");
-  }
-});
-
   });
 
+  document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement === lauschen && !audio.paused) {
+      animation.classList.add("is-playing");
+    } else {
+      animation.classList.remove("is-playing");
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -81,6 +84,32 @@ document.addEventListener("DOMContentLoaded", function () {
     pagination: { el: '.swiper-pagination' },
     navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
   });
+    // AUSSCHALTEN
+  const ausschalten = document.querySelector("#ausschalten-btn");
+  if (ausschalten) {
+    ausschalten.addEventListener("click", function () {
+      const blackout = document.createElement("div");
+      blackout.style.cssText = `
+        position: fixed;
+        inset: 0;
+        background: black;
+        z-index: 999999;
+        opacity: 0;
+        transition: opacity 1s ease;
+        cursor: pointer;
+      `;
+      document.body.appendChild(blackout);
+      // kurz warten damit transition greift
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        blackout.style.opacity = "1";
+      }));
+      // Klick auf die schwarze Fläche macht sie wieder weg
+      blackout.addEventListener("click", function () {
+        blackout.style.opacity = "0";
+        blackout.addEventListener("transitionend", () => blackout.remove(), { once: true });
+      });
+    });
+  }
 });
 
 const darkmodeButton = document.getElementById('darkmode-toggle');
@@ -102,4 +131,5 @@ if (darkmodeButton) {
     localStorage.setItem(storageKey, naechstesTheme);
   });
 }
+
 

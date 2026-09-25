@@ -1,19 +1,22 @@
-*{
-  box-sizing: border-box;
+* {
+  box-sizing: border-box; /*macht das margin und padding nicht zusetzen*/
 }
 
-
-html, body {
-  scroll-behavior: smooth;
+html {
   margin: 0;
-  padding:0;
-  overflow-x: hidden; 
+  padding: 0;
+  scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 @font-face {
   font-family: "Monument Grotesk";
-  src: url("/ABCMonumentGrotesk-Heavy-Trial.woff") format("woff");
+  src: url("./ABCMonumentGrotesk.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -24,7 +27,7 @@ html, body {
   --bg: url("wolkenhgb.jpg");
   --text: rgb(189, 2, 2);
   --header: rgb(255, 217, 0);
-  --smalltext: rgb(0, 0, 175)
+  --smalltext: rgb(0, 0, 175);
 }
 
 body {
@@ -33,7 +36,6 @@ body {
   color: var(--header);
   color: var(--smalltext);
 }
-
 
 html[data-theme="dark"] {
   --bg: url("DarkModeHGB.jpg");
@@ -47,7 +49,6 @@ html[data-theme="light"] {
   --text: rgb(189, 2, 2);
   --header: rgb(255, 217, 0);
   --smalltext: rgb(0, 0, 175);
-  --selfietext: rgb(255, 217, 0);
 }
 
 
@@ -67,7 +68,7 @@ html[data-theme="light"] {
 }
 
 .navigation {
-  display: flex;
+  display: flex; /*Kinder waagerecht nebeneinander*/
   justify-content: center;
   align-items: center;
   width: 50%;
@@ -97,7 +98,7 @@ html[data-theme="light"] {
 }
 
 section {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 60px;
 }
 
 button {
@@ -120,25 +121,10 @@ button:active {
   transform: scale(0.97);
 }
 
-.inner-wrapper {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-/*Überschrift*/
-
-h1 {
-  font-size: 25vw;
-  font-weight: bold;
-  line-height: 0.9;
-  margin-top: 226px;
-  letter-spacing: -35px;
-  color: var(--text);
-}
-
 /* Unterüberschriften*/
 
 h2 {
+  font-family: "Monument Grotesk", sans-serif;
   font-size: 16vw;
   font-weight: bold;
   line-height: 0.9;
@@ -146,18 +132,6 @@ h2 {
   letter-spacing: -30px;
   color: var(--text);
   text-align-last: justify;
-}
-
-h1 span {
-  display: block;
-}
-
-h1 span:first-child {
-  text-align: left;
-}
-
-h1 span:last-child {
-  text-align: right
 }
 
 
@@ -178,21 +152,64 @@ body {
 }
 
 .mainpage {
-  width:100%;
+  width: 100%;
   max-width: 1200px;
-  margin: 150px auto 0;
+  margin: 280px auto 0;
   padding: 0 16px;
+  box-sizing: border-box;
 }
+
+.Selfie {
+  position: absolute;
+
+  top: clamp(-30px, -1vw, -5px);
+  right: clamp(-30px, -3vw, -5px);
+
+  width: clamp(260px, 45vw, 700px);
+  height: auto;
+
+  z-index: 0;
+  opacity: 1;
+}
+
+.ErsteHeadline {
+  width: 100%;
+  height: auto;
+  margin: 14px 0 0 -50px;
+  position: relative;
+}
+
 
 h1 {
   font-family: "Monument Grotesk", sans-serif;
-  font-weight: 900;
-  margin-bottom: 100px;
+  font-size: 23vw;
+  font-weight: bold;
+  letter-spacing: -35px;
+  line-height: 0.9;
+  color: var(--text);
+
   position: relative;
   z-index: 1;
 }
 
+.ErsteHeadline span {
+  display: block;
+}
+
+.ErsteHeadline span:first-child {
+  text-align: left;
+}
+
+.ErsteHeadline span:last-child {
+  text-align: right;
+}
+
+
 /*Dieser Selfie Text*/
+#Selfie {
+  max-width: 100%;
+  align-items: center;
+}
 
 .selfietext {
   gap: 40px;
@@ -208,8 +225,6 @@ h1 {
   font-size: 22px;
   line-height: 1.3;
   color: var(--text);
-  padding-bottom: 50px;
-  padding-right: 150px;
 
   padding: 30px;
   width: fit-content;
@@ -222,49 +237,34 @@ h1 {
   display: flex;
   align-items: center;
   margin-top: 50px;
-
 }
 
 .lolli-text img {
-  width: 900px;
+  width: 50%;
 }
 
+/*Die überschrift mit dem Haus drin*/
 
-
-
-/*Das Selfie oben rechts*/
-
-.Selfie {
-  position: absolute;
-  top: -65px;
-  right: -70px;
-  width: 700px;
-  z-index: 0;
-  opacity: 100%;
+#Mitnehmen {
+  max-width: 100%;
+  margin-top: 40px;
 }
-
-/*Die Unterüberschrift mit dem Haus drin*/
 
 .HausText {
   position: relative;
+  margin-bottom: 70px;
 }
-
 
 .HausText h2 {
   font-family: "Monument Grotesk", sans-serif;
   font-weight: 900;
-  margin-bottom: -700px;
-  margin-top: 50px;
-  position: relative;
+  position: absolute;
   z-index: 2;
 }
 
-/* Fixed: added missing semicolon after margin-top to correct CSS syntax error */
-
 .HausText img {
   position: relative;
-  width: 780px;
-  margin-top: 180px;
+  width: 50%;
   margin-left: 125px;
   z-index: 1;
 }
@@ -306,35 +306,47 @@ h1 {
 
 
 /*Auswahl Section*/
-.Picknickdeckentext {
-  position: absolute;
-  margin-top: 260px;
+#Weise-wählen {
+  max-width: 100%;
+  margin-top: 300px;
 
-  justify-content: center;
-  width: 1500px;
-  top: 3100px;
-  left: 400px;
+  position: relative;
+  align-items: center;
+}
+
+.WählenText {
+  position: relative;
+  width: 100%;
+
+  white-space: nowrap; /*kein Zeilenumbruch*/
+}
+
+.WählenText h2 {
+  font-family: "Monument Grotesk", sans-serif;
+  font-weight: 900;
+
+  position: absolute;
+  z-index: 1;
+  top: 350px;
+  margin-left: 0;
 }
 
 .Auswahl {
   position: relative;
-  display: inline-block;
-  left: -200px;
-  top: 130px;
+  display: inline-block; /*feste abstände, Elemente bleiben in einer Zeile*/
+  left: 250px;
 }
 
 .Picknick {
-  display: block;
+  display: block; /*volle breite*/
   width: 1000px;
   z-index: 10;
-  position: absolute;
-
+  position: relative;
 }
 
 .ObjektKlick {
   position: absolute;
   z-index: 11;
-  /* jetzt über dem Bild */
   border: none;
   background: transparent;
   cursor: pointer;
@@ -343,21 +355,12 @@ h1 {
 
 .ObjektKlick:hover {
   background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
 }
 
 .ObjektKlick {
-  background: transparent;
-  border: none;
-  outline: none;
-  box-shadow: none;
   appearance: none;
   z-index: 10;
 }
-
-/* Position Bier */
 
 .BierKlick {
   left: 180px;
@@ -366,18 +369,12 @@ h1 {
   height: 300px;
 }
 
-
-/* Position Apfel */
-
 .ApfelKlick {
   left: 410px;
   top: 220px;
   width: 180px;
   height: 190px;
 }
-
-
-/* Position Zigarette */
 
 .ZigaretteKlick {
   left: 630px;
@@ -386,14 +383,13 @@ h1 {
   height: 90px;
 }
 
-/* Das eigentliche Overlay */
+/* Overlay */
 
 .ObjektOverlay {
-  position: sticky;
-  left: 0;
-  top: 0;
-  width: 1000px;
-  height: auto;
+  position: absolute;
+  inset: 0; /*margin und padding 0*/
+  width: 100%;
+  height: 100%;
 
   display: none;
   align-items: center;
@@ -402,7 +398,7 @@ h1 {
   z-index: 99999;
 }
 
-/* Overlay wird sichtbar */
+/* Overlay ist zu sehen */
 
 .ObjektOverlay.offen {
   display: flex;
@@ -411,65 +407,37 @@ h1 {
 /* Bild im Overlay */
 
 .OverlayBild {
-  max-width: 1000px;
-  max-height: 90vh;
-  padding-top: 126px;
-  margin-left: -400px;
-  object-fit: contain;
-  position: static;
-}
-
-/* kleiner Text */
-
-.LauschText h2 {
-  font-family: "Monument Grotesk", sans-serif;
-  font-weight: 900;
-
+  width: 100%;
+  height: 100%;
   position: absolute;
-
-  left: -410px;
-  top: -40px;
-
-  margin: 0;
-
-  z-index: 1;
+  inset: 0;
 }
 
-/* großer Text */
-
-.LauschTextBig h1 {
-  font-family: "Monument Grotesk", sans-serif;
-  text-align: center;
-
-  position: absolute;
-
-  left: -150px;
-  top: 150px;
-
-  margin: 0;
-
-  z-index: 1;
-}
 
 /* Überschrift */
+#PlitschPlatsch {
+  position: relative;
+  max-width: 100%;
+  min-height: 100vh;
+  top: 250px;
+  z-index: 5;
+}
+
+.inner-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .HeadlineLauschen {
   position: relative;
   z-index: 0;
 
-  margin-top: -1400px;
-  margin-left: 0;
+  top: 150px;
+  left: -100px;
 
   font-family: "Monument Grotesk", sans-serif;
   font-weight: 900;
-  text-align: left;
-}
-
-/* Normaler Zustand */
-
-#PlitschPlatsch {
-  position: relative;
-  min-height: 100vh;
-  z-index: 5;
 }
 
 #PlitschPlatsch .inner-wrapper {
@@ -477,34 +445,39 @@ h1 {
   width: 100%;
   min-height: 100vh;
 
-  margin-top: 1200px;
-  padding-top: 300px;
-  margin-right: 150px;
+  margin-top: 0p;
+  padding-top: 0;
+  margin-right: 0;
   padding-bottom: 200px;
 
   z-index: 1;
 }
 
-.lausch-animation {
+
+.button-vollbild {
+  top: 600px;
+}
+
+.animationmitkatze {
   position: relative;
   z-index: 1;
 
   width: 500px;
   height: 500px;
-  margin: 0;
+
+  top: -1000px;
 
   background-color: var(--header);
   border-radius: 50%;
 }
-
 /* Katze */
 
 .Katze {
-  position: relative;
+  position: absolute;
   z-index: 2;
 
-  margin-top: -880px;
-  margin-left: 50px;
+  top: 35px;
+  left: 35px;
 }
 
 .Katze img {
@@ -519,49 +492,43 @@ h1 {
   0% {
     background-color: #ffe600;
   }
-
   10% {
     background-color: #ff6f00;
   }
-
   20% {
     background-color: #ff0000;
   }
-
   30% {
     background-color: #0a7db8;
   }
-
   40% {
     background-color: #1900ff;
   }
-
   50% {
     background-color: #ffe600;
   }
-
   60% {
     background-color: #ffb300;
   }
-
   70% {
     background-color: #4400ff;
   }
-
   80% {
     background-color: #ff0000;
   }
-
   90% {
     background-color: #ff9500;
   }
-
   100% {
     background-color: #ffe600;
   }
 }
 
-.lausch-animation.is-playing {
+.animationmitkatze.is-playing {
+  animation: lauschen 10s linear infinite;
+}
+
+#PlitschPlatsch:fullscreen.is-playing {
   animation: lauschen 10s linear infinite;
 }
 
@@ -569,66 +536,48 @@ h1 {
 /* Vollbildmodus */
 
 #PlitschPlatsch:fullscreen {
-  position: relative;
-
+  position: fixed;
+  inset: 0;
 
   width: 100vw;
   height: 100vh;
   min-height: 100vh;
 
-  margin: 0;
-  padding: 0;
-
-  overflow: hidden;
   background-color: var(--header);
+  overflow: hidden;
+  animation: lauschen 10s linear infinite;
 }
 
-#PlitschPlatsch:fullscreen .inner-wrapper {
-  position: relative;
-  margin-top: 0;
-
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-
-  margin: 0;
-  padding: 0;
-}
-
-#PlitschPlatsch:fullscreen .lausch-animation {
-  position: absolute;
-  inset: 0;
-
-
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-
-  border-radius: 0;
-}
-
-#PlitschPlatsch:fullscreen .HeadlineLauschen {
-  margin: 0;
+#PlitschPlatsch:fullscreen .inner-wrapper { /* HG nicht zu sehen*/
+  display: none;
 }
 
 /*Fernseher*/
 
 .Fernsehturmsections {
-margin-bottom: -300px;
+  max-width: 100%;
 }
 
+#FernsehSteuerung {
+  max-width: 100%;
+}
+
+#Fernsehturm {
+  padding-top: 350px;
+}
 
 #FernsehSteuerung h2 {
   font-family: "Monument Grotesk", sans-serif;
   font-weight: 900;
   text-align: right;
+  max-width: 1200px;
 
-  position: absolute;
-  margin-top: -740px;
+  position: relative;
+  top: -1200px;
+  left: 50px;
 }
 
 #FernsehSteuerung p {
-
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
   font-size: 22px;
@@ -636,12 +585,9 @@ margin-bottom: -300px;
 
   text-align: justify;
 
-  transform: translate(150px, -320px);
+  transform: translate(150px, -1300px);
 
-  
-  
   padding: 30px;
-  width: fit-content;
   max-width: 400px;
   border-radius: 20px;
   backdrop-filter: blur(75px);
@@ -650,13 +596,9 @@ margin-bottom: -300px;
 
 .Ausschalten {
   margin-left: 280px;
-  transform: translateY(-500px);
+  position: relative;
+  top: -1300px;
   width: 150px;
-}
-
-#Fernsehturm {
-  padding-top: 100px;
-  flex: 1;
 }
 
 .inner-wrapper2 {
@@ -664,7 +606,6 @@ margin-bottom: -300px;
   position: relative;
   rotate: 90deg;
   margin-left: 400px;
-  margin-top: 200px;
 }
 
 .FernseherFoto {
@@ -694,17 +635,15 @@ margin-bottom: -300px;
 
 .Rauschen3 {
   width: 550px;
-  margin-top: -330px;
-  margin-left: 420px;
+  top: -400px;
+  margin-left: 400px;
   position: absolute;
 }
-
 
 .Rauschen video {
   width: 100%;
   height: 100%;
-  display: block;
-  object-fit: fill;
+ 
   z-index: 0;
 
   transform: rotate(-90deg);
@@ -713,8 +652,7 @@ margin-bottom: -300px;
 .Rauschen2 video {
   width: 110%;
   height: 100%;
-  display: block;
-  object-fit: fill;
+
   z-index: 0;
 
   transform: rotate(-90deg);
@@ -723,26 +661,22 @@ margin-bottom: -300px;
 .Rauschen3 img {
   width: 70%;
   height: 70%;
-  display: block;
-  object-fit: fill;
-  z-index: 0;
-  
-  position: relative;
-  padding-bottom: 0px;
-  
-transform: rotate(-90deg);
-}
 
+  z-index: 0;
+
+  position: relative;
+  padding-bottom: 0;
+
+  transform: rotate(-90deg);
+}
 
 
 .inner-wrapper3 {
   position: relative;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 
   padding: 10px;
-  width: fit-content;
-  width: vw;
-  border-radius: 20px;
+  max-width: 100%;
   backdrop-filter: blur(75px);
 }
 
@@ -750,4 +684,473 @@ transform: rotate(-90deg);
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+}
+
+
+
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+  body {
+    overflow-x: hidden;
+    background-position: center -600px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
+
+  .navigation {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 4px 8px;
+    justify-content: center;
+  }
+
+  .navigation a {
+    font-size: 12px;
+    padding: 2px 4px;
+    border-width: 4px;
+  }
+
+  #darkmode-toggle {
+    font-size: 12px;
+    padding: 2px 8px;
+  }
+
+  .mainpage {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 120px;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 23vw;
+    letter-spacing: -18px;
+    bottom: 0;
+  }
+
+  .Selfie {
+    position: absolute;
+    z-index: 0;
+
+    top: auto;
+    right: 0;
+    bottom: 19px;
+
+    width: clamp(280px, 45vw, 520px);
+    max-width: 400px;
+    height: auto;
+
+    display: block;
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 14vw;
+    letter-spacing: -4px;
+    margin-top: 40px;
+  }
+
+  .lolli-text {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 50px;
+    max-width: 50%;
+  }
+
+  .lolli-text img {
+    width: 75vw;
+    max-width: 400px;
+  }
+
+  .selfietext {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    font-size: 16px;
+    padding: 20px;
+  }
+
+  .HausText {
+    position: relative;
+    width: 90%;
+    margin: 0 auto 60px;
+  }
+
+  .HausText h2 {
+    top: 35%;
+    left: 5%;
+    width: 90%;
+    margin: 0;
+    font-size: 13vw;
+    letter-spacing: -14px;
+    text-align: center;
+  }
+
+  .HausText img {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+  }
+
+  .swiper {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide img {
+    width: 70vw;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #Weise-wählen {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+
+    width: 100% !important;
+    margin-top: 150px !important;
+    padding: 0 20px;
+  }
+
+  .WählenText {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  .WählenText h2 {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    margin: 0;
+    font-size: 14vw;
+    letter-spacing: -8px;
+  }
+
+  .Auswahl {
+    position: relative !important;
+    display: block !important;
+
+    width: min(96vw, 1100px) !important;
+    margin: 0 auto !important;
+
+    left: auto !important;
+    top: auto !important;
+  }
+
+  .Picknick {
+    display: block;
+    width: 100% !important;
+    height: auto;
+    margin: 0;
+  }
+
+  .ObjektKlick {
+    position: absolute;
+    z-index: 11;
+
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .BierKlick {
+    left: 18%;
+    top: 20%;
+    width: 18%;
+    height: 30%;
+  }
+
+  .ApfelKlick {
+    left: 41%;
+    top: 22%;
+    width: 18%;
+    height: 19%;
+  }
+
+  .ZigaretteKlick {
+    left: 63%;
+    top: 32%;
+    width: 22%;
+    height: 9%;
+  }
+
+  .LauschText h2 {
+    position: relative;
+    left: auto;
+    top: auto;
+  }
+
+  .LauschTextBig h1 {
+    position: relative;
+    left: auto;
+    top: auto;
+    text-align: center;
+    font-size: 14vw;
+    letter-spacing: -9px;
+  }
+
+  .Auswahl {
+    position: relative;
+    left: auto;
+    top: auto;
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .Picknick {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .BierKlick {
+    left: 18%;
+    top: 38%;
+    width: 18%;
+    height: 30%;
+  }
+
+  .ApfelKlick {
+    left: 41%;
+    top: 30%;
+    width: 20%;
+    height: 40%;
+  }
+
+  .ZigaretteKlick {
+    left: 63%;
+    top: 60%;
+    width: 22%;
+    height: 9%;
+  }
+
+
+  #PlitschPlatsch .inner-wrapper {
+    position: relative;
+    width: min(90vw, 1200px);
+    min-height: 600px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .HeadlineLauschen {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0;
+    text-align: center;
+  }
+
+  .HeadlineLauschen h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 14vw;
+    letter-spacing: -10px;
+  }
+
+  .Katze {
+    position: absolute;
+    left: 50%;
+    top: 15%;
+    bottom: 0;
+    width: min(38vw, 280px);
+    transform: translateX(-50%);
+  }
+
+  .Katze img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .animationmitkatze {
+    position: relative;
+
+    width: min(56vw, 420px);
+    height: min(56vw, 420px);
+
+    aspect-ratio: 1 / 1;
+    flex: 0 0 auto;
+
+    margin: 30px auto 0;
+    top: auto;
+
+    background-color: var(--header);
+    border-radius: 50%;
+  }
+
+  .button-vollbild {
+    position: absolute;
+    top: auto;
+    left: 50%;
+    bottom: -90px;
+    transform: translateX(-50%);
+  }
+
+
+  .Fernsehturmsections {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  #FernsehSteuerung {
+    max-width: 100%;
+  }
+
+  #FernsehSteuerung h2 {
+    position: relative;
+    margin-top: 20px;
+    text-align: left;
+    font-size: 14vw;
+    letter-spacing: -4px;
+  }
+
+  #FernsehSteuerung p {
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  .Ausschalten {
+    margin-left: 0;
+    transform: none;
+    display: block;
+    margin: 16px auto;
+    width: auto;
+    padding: 6px 20px;
+  }
+
+  .inner-wrapper2 {
+    position: relative;
+    width: min(90vw, 700px);
+    margin: 0 auto;
+  }
+
+  .FernseherFoto {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+  }
+
+  .FernseherFoto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .Rauschen,
+  .Rauschen2,
+  .Rauschen3 {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .Rauschen {
+    width: 48%;
+    left: -20%;
+    top: 148%;
+    align-items: center;
+  }
+
+  .Rauschen2 {
+    left: -46%;
+    width: 95%;
+    top: 197%;
+    align-items: center;
+  }
+
+  .Rauschen3 {
+    width: 70%;
+    left: -45%;
+    top: -5%;
+    transform: rotate(180deg);
+  }
+
+  .Rauschen video,
+  .Rauschen2 video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transform: rotate(90deg);
+  }
+
+  .Rauschen3 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: rotate(90deg);
+  }
+
+  /* FernsehSteuerung */
+  #FernsehSteuerung h2 {
+    position: relative;
+    margin-top: 820px;
+
+    text-align: left;
+    font-size: 14vw;
+    letter-spacing: -7px;
+  }
+
+  #FernsehSteuerung p {
+    position: relative;
+    top: -450px;
+
+    transform: none;
+    width: 60%;
+    max-width: 100%;
+    margin: 16px auto;
+    padding: 16px;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .Ausschalten {
+    margin-left: 0;
+    transform: none;
+    display: block;
+    margin: 16px auto;
+    margin-top: 400px;
+    width: auto;
+    padding: 6px 20px;
+  }
+
+  .Fernsehturmsections {
+    top: 350px;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    overflow: invisible;
+  }
+
+  /* Footer */
+  .inner-wrapper3 {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
+
+  .dinamo {
+    font-size: 14px;
+  }
 }
